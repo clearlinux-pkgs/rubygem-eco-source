@@ -4,7 +4,7 @@
 #
 Name     : rubygem-eco-source
 Version  : 1.1.0.rc.1
-Release  : 3
+Release  : 4
 URL      : https://rubygems.org/downloads/eco-source-1.1.0.rc.1.gem
 Source0  : https://rubygems.org/downloads/eco-source-1.1.0.rc.1.gem
 Summary  : No detailed summary available
