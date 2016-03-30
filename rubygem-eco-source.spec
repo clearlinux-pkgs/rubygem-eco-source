@@ -4,7 +4,7 @@
 #
 Name     : rubygem-eco-source
 Version  : 1.1.0.rc.1
-Release  : 4
+Release  : 5
 URL      : https://rubygems.org/downloads/eco-source-1.1.0.rc.1.gem
 Source0  : https://rubygems.org/downloads/eco-source-1.1.0.rc.1.gem
 Summary  : No detailed summary available
@@ -25,17 +25,17 @@ gem spec %{SOURCE0} -l --ruby > rubygem-eco-source.gemspec
 gem build rubygem-eco-source.gemspec
 
 %install
-gem_dir=$(ruby -e'puts Gem.default_dir')
+%global gem_dir $(ruby -e'puts Gem.default_dir')
 gem install -V \
 --local \
 --force \
---install-dir .${gem_dir} \
+--install-dir .%{gem_dir} \
 --bindir .%{_bindir} \
 eco-source-1.1.0.rc.1.gem
 
-mkdir -p %{buildroot}${gem_dir}
-cp -pa .${gem_dir}/* \
-%{buildroot}${gem_dir}
+mkdir -p %{buildroot}%{gem_dir}
+cp -pa .%{gem_dir}/* \
+%{buildroot}%{gem_dir}
 
 if [ -d .%{_bindir} ]; then
 mkdir -p %{buildroot}%{_bindir}
@@ -43,14 +43,10 @@ cp -pa .%{_bindir}/* \
 %{buildroot}%{_bindir}/
 fi
 
+
 %files
 %defattr(-,root,root,-)
-/usr/lib64/ruby/gems/2.2.0/cache/eco-source-1.1.0.rc.1.gem
-/usr/lib64/ruby/gems/2.2.0/doc/eco-source-1.1.0.rc.1/ri/Eco/Source/bundled_path-c.ri
-/usr/lib64/ruby/gems/2.2.0/doc/eco-source-1.1.0.rc.1/ri/Eco/Source/cdesc-Source.ri
-/usr/lib64/ruby/gems/2.2.0/doc/eco-source-1.1.0.rc.1/ri/Eco/cdesc-Eco.ri
-/usr/lib64/ruby/gems/2.2.0/doc/eco-source-1.1.0.rc.1/ri/cache.ri
-/usr/lib64/ruby/gems/2.2.0/doc/eco-source-1.1.0.rc.1/ri/lib/eco/page-eco_js.ri
-/usr/lib64/ruby/gems/2.2.0/gems/eco-source-1.1.0.rc.1/lib/eco/eco.js
-/usr/lib64/ruby/gems/2.2.0/gems/eco-source-1.1.0.rc.1/lib/eco/source.rb
-/usr/lib64/ruby/gems/2.2.0/specifications/eco-source-1.1.0.rc.1.gemspec
+/usr/lib64/ruby/gems/2.3.0/cache/eco-source-1.1.0.rc.1.gem
+/usr/lib64/ruby/gems/2.3.0/gems/eco-source-1.1.0.rc.1/lib/eco/eco.js
+/usr/lib64/ruby/gems/2.3.0/gems/eco-source-1.1.0.rc.1/lib/eco/source.rb
+/usr/lib64/ruby/gems/2.3.0/specifications/eco-source-1.1.0.rc.1.gemspec
